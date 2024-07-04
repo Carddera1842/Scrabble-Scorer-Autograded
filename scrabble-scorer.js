@@ -48,20 +48,21 @@ let simpleScorer = function simpleScorer(word){
 }
 
 let vowelBonusScorer = function vowelBonusScorer(wordWithVowels) {
-   let vowels = ["A","E","I","O","U"];
+   let vowelScoresStructure = {
+      3:["A","E","I","O","U"],
+      1:["B","C","D","F","G","H","J","K","L","M","N","P","R","S","T","V","W","X","Y","Z"],
+      0:[" "]
+      };
    wordWithVowels = wordWithVowels.toUpperCase().split("");;
    let letterPoints = 0;
-   let numVowels = 0;
-   for (i = 0; i < wordWithVowels.length; i++){
-      for (j = 0; j < vowels.length; j++){
-         if (wordWithVowels[i].includes(vowels[j])) {
-            letterPoints = letterPoints + 3;
-            numVowels = numVowels + 1;
-         }
+   for (let i = 0; i < wordWithVowels.length; i++) {
+      for (const pointValue in vowelScoresStructure) {
+        if (vowelScoresStructure[pointValue].includes(wordWithVowels[i])) {
+          letterPoints = letterPoints + Number(pointValue);
+        }
       }
-      letterPoints ++;
-   }
-   return Number(letterPoints - numVowels);
+    }
+    return letterPoints;
 }
 
 
