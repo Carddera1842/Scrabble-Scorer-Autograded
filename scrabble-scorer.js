@@ -38,7 +38,7 @@ function initialPrompt() {
 let newPointStructure = transform(oldPointStructure);
 newPointStructure[" "] = 0;
 
-let simpleScorer = function simpleScorer(word){
+let simpleScorer = function(word){
    word = word.toLowerCase();
    let letterPoints = "";
    for (let i = 0; i < word.length; i ++){
@@ -47,7 +47,7 @@ let simpleScorer = function simpleScorer(word){
    return Number(letterPoints);
 }
 
-let vowelBonusScorer = function vowelBonusScorer(wordWithVowels) {
+let vowelBonusScorer = function(wordWithVowels) {
    let vowelScoresStructure = {
       3:["A","E","I","O","U"],
       1:["B","C","D","F","G","H","J","K","L","M","N","P","R","S","T","V","W","X","Y","Z"],
