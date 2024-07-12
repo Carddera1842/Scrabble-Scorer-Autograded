@@ -101,7 +101,7 @@ const scoringAlgorithms = [
 
 function scorerPrompt() {
    console.log("Which scoring algorithm would you like to use? \n");
-   for (i = 0; i < 3; i++){
+   for (let i = 0; i < 3; i++){
       console.log(`${[i]} - ${scoringAlgorithms[i].name}: ${scoringAlgorithms[i].description}`);
    }
 
@@ -124,7 +124,7 @@ function scorerPrompt() {
 function transform(object) {
    let newStructure = {};
       for (number in oldPointStructure) {
-         for (i = 0; i < oldPointStructure[number].length; i++) {
+         for (let i = 0; i < oldPointStructure[number].length; i++) {
          newStructure[oldPointStructure[number][i].toLowerCase()] = Number(number);
         }
       }
